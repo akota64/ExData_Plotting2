@@ -1,5 +1,5 @@
 ## Generates plot1.png
-## Assumes presence of exdata_data_NEI_data within the same directory as this script
+## Assumes presence of exdata_data_NEI_data in the working directory of the R project
 
 ## Load data
 NEI <- readRDS("exdata_data_NEI_data/summarySCC_PM25.rds")
@@ -14,7 +14,8 @@ em_by_year <- tapply(NEI$Emissions, NEI$year, sum)
 
 
 ## Plot data
-png(filename = "plot1.png")
+png(filename = "plots/plot1.png")
 plot(names(em_by_year), em_by_year, type="b", pch=17, 
+     main = expression("PM"[2.5]*" Emissions in the US from 1999-2008"),
      xlab = "Year", ylab = expression('PM'[2.5]*' Emissions (tons)'))
 dev.off()
