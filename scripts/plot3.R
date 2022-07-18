@@ -1,4 +1,4 @@
-## Generates plot2.png
+## Generates plot3.png
 ## Assumes presence of exdata_data_NEI_data in the working directory of the R project
 
 library(dplyr)
