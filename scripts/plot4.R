@@ -11,6 +11,7 @@ sub_scc <- subset(SCC, EI.Sector %in% coal_facts)$SCC
 
 ## Subset data from NEI that specifically comes from these SCC's 
 sub_nei <- subset(NEI, SCC %in% sub_scc)
+sub_nei <- transform(sub_nei, year=factor(year))
 
 ## tapply across years to get yearly emissions 
 coal_em_by_year <- tapply(sub_nei$Emissions, sub_nei$year, sum)
