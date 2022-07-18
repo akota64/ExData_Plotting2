@@ -22,7 +22,6 @@ sub_scc <- subset(SCC, EI.Sector %in% motor_facts)$SCC
 ## Subset data from NEI that specifically comes from these SCC's 
 motor_sub <- subset(sub_nei, SCC %in% sub_scc)
 motor_sub <- transform(motor_sub, 
-                       year=factor(year), 
                        fips=factor(fips, labels = c("Los Angeles County", "Baltimore City")))
 
 ## Summarize data over Baltimore City and LA County separately, and normalizing by
@@ -31,7 +30,7 @@ motor_summary <- motor_sub %>%
     group_by(fips, year) %>% 
     summarize(total_emissions=sum(Emissions)) %>%
     mutate(emission_prop = total_emissions/first(total_emissions)) %>%
-    mutate(year = as.numeric(as.character(year)), fips = as.character(fips)) %>%
+    mutate(fips = as.character(fips)) %>%
     ungroup()
 
 ## Create plot with ggplot
