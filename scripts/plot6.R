@@ -39,6 +39,6 @@ g <- ggplot(motor_summary, aes(x = year, y = emission_prop))
 g + geom_point(aes(color = fips)) + geom_line(aes(color = fips)) + 
     labs(x = "Year", y = expression('Change in PM'[2.5]*' Emissions (vs. 1999 PM'[2.5]*' Emissions)'), 
          color = "Area",
-         title = expression("Comparing PM"[2.5]*" Emission Change between Baltimore City and LA County")) + 
+         title = expression("Comparing Motor Vehicle PM"[2.5]*" Emissions: Baltimore City vs. LA County")) + 
     theme(plot.title = element_text(hjust = 0.2))
 dev.off()
